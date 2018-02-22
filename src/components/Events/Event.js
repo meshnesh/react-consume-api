@@ -5,15 +5,25 @@ class Event extends Component{
   render(){
     return (
       <div>
-        <div className="username">
+        <div className="event">
           {this.props.title}
         </div>
-        <div className="username">
+        <div className="event">
         {this.props.location}
         </div>
-        <div className="username">
-          {this.props.date}
+        <div className="event">
+          {this.props.date} {this.props.time}
         </div>
+        <div className="event">
+        {this.props.description}
+        </div>
+        <div className="event">
+          {this.props.event_category}
+        </div>
+        <div className="event">
+          {this.props.image_url}
+        </div>
+        <br />
       </div>
     )
   }
