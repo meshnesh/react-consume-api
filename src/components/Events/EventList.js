@@ -15,13 +15,9 @@ class EventList extends Component {
       )
     });
     return (
-      <div>
-        <div>
-          <center>
+      <div className="row">
             <h1 className="event-List">Event List</h1>
             {eventNodes}
-          </center>
-        </div>
       </div>
     )
   }
