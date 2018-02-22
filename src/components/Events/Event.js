@@ -4,27 +4,26 @@ import ReactDOM from "react-dom"
 class Event extends Component{
   render(){
     return (
-      <div>
-        <div className="event">
-          {this.props.title}
+        <div className="col s12 m4">
+
+            <div className="card">
+                <div className="card-image waves-effect waves-block waves-light">
+
+                <img className="activator" src={this.props.image_url}/>
+
+                </div>
+
+                <div className="card-content">
+
+                <span className="card-title grey-text text-darken-4">{this.props.title}</span>
+                <p> {this.props.location} </p>
+                <h6> {this.props.date} {this.props.time} </h6>
+
+                <a className="waves-effect waves-light btn">VIEW</a>
+
+                </div>
+            </div>
         </div>
-        <div className="event">
-        {this.props.location}
-        </div>
-        <div className="event">
-          {this.props.date} {this.props.time}
-        </div>
-        <div className="event">
-        {this.props.description}
-        </div>
-        <div className="event">
-          {this.props.event_category}
-        </div>
-        <div className="event">
-          {this.props.image_url}
-        </div>
-        <br />
-      </div>
     )
   }
 }
