@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export function fetchEvents() {
+export const fetchEvents = () => {
 
-  return function(dispatch) {
+  return (dispatch) => {
     axios.get('https://bright-events.herokuapp.com/api/events/all')
         .then( (response) =>{
           dispatch({type:'FETCH_EVENTS_FULFILLED', payload:response.data});
