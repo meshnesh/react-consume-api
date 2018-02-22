@@ -9,10 +9,9 @@ class EventList extends Component {
     }
     var eventNodes = this.props.events.map( function( event ) {
       return (
-        <Event title={ event.title } location={ event.location }
-        key={ event.id } date={ event.date }>
-        {event.title}
-        </Event>
+        <Event key={ event.id } image_url={ event.image_url } title={ event.title } location={ event.location }
+          date={ event.date } time={ event.time } description={ event.description }
+          event_category={ event.event_category } />
       )
     });
     return (
