@@ -7,7 +7,6 @@ import EventList from './Events/EventList';
 import { fetchEvents } from '../actions/eventActions';
 
 @connect((state) => {
-  // console.log("ins store",store.eventsReducer.events);
   return {
     events: state.eventsReducer.events
   }
@@ -28,5 +27,6 @@ class Main extends Component {
     )
   }
 }
+
 
 export default Main;
