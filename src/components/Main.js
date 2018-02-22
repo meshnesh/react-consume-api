@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 // components
 import EventList from './Events/EventList';
+import Navigation from './Navigation/Navigation';
+import Footer from './Footer/Footer';
+
 import { fetchEvents } from '../actions/eventActions';
 
 @connect((state) => {
@@ -22,7 +25,9 @@ class Main extends Component {
     console.log("From the main file ",this.props.events);
     return (
       <div>
+        <Navigation />
         <EventList events ={this.props.events}/>
+        <Footer />
       </div>
     )
   }
