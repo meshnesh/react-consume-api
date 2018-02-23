@@ -9,6 +9,7 @@ export default class About extends React.Component {
 			<div>
                 <Navigation />
 				About Page My N***a
+                <Footer />
 			</div>
 		)
 	}
