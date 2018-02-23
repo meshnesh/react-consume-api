@@ -7,17 +7,21 @@ class Nav extends Component {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    <a href="index.html" className="brand-logo">
+
                     <Link to="/">
-                        Bright Events
+                        <a href="index.html" className="brand-logo">
+                            Bright Events
+                        </a>
                     </Link>
-                    </a>
+                    
                     <ul id="nav-mobile hide-on-small-only" className="right hide-on-med-and-down">
-                        <li><a href="#">
+                        <li>
                         <Link to="/about">
-                            About
+                            <a href="#">
+                                About
+                            </a>
                         </Link>
-                        </a></li>
+                        </li>
                         <li><a href="signup.html">Sign In</a></li>
                         <li><a href="manageTickets.html">Manage Events</a></li>
                     </ul>
