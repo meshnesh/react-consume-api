@@ -1,8 +1,13 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom";
+import { Link } from 'react-router-dom';
+
 
 class Event extends Component{
+
+
   render(){
+
     return (
         <div className="col s12 m4">
 
@@ -19,7 +24,11 @@ class Event extends Component{
                 <p> {this.props.location} </p>
                 <h6> {this.props.date} {this.props.time} </h6>
 
-                <a className="waves-effect waves-light btn">VIEW</a>
+                <Link to={`/${this.props.id}`}>
+                    <a className="waves-effect waves-light btn">
+                        VIEW
+                    </a>
+                </Link>
 
                 </div>
             </div>
@@ -28,4 +37,4 @@ class Event extends Component{
   }
 }
 
-export default Event
+export default Event;
