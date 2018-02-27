@@ -37,7 +37,7 @@ class UserRegistration extends Component {
                             Submit
                         </a>
                         <p>
-                            Already have an account: <Link to="/login"><a>Login</a></Link>
+                            Already have an account: <Link to="/login">Login</Link>
                         </p>
                     </form>
                 </div>

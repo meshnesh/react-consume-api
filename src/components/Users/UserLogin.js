@@ -29,7 +29,7 @@ class UserLogin extends Component {
                             Submit
                         </a>
                         <p>
-                            Don't have an account: <Link to="/register"><a>Register</a></Link>
+                            Don't have an account: <Link to="/register">Register</Link>
                         </p>
                     </form>
                 </div>

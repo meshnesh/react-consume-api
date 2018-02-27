@@ -24,10 +24,8 @@ class Event extends Component{
                 <p> {this.props.location} </p>
                 <h6> {this.props.date} {this.props.time} </h6>
 
-                <Link to={`/${this.props.id}`}>
-                    <a className="waves-effect waves-light btn">
-                        VIEW
-                    </a>
+                <Link className="waves-effect waves-light btn" to={`/${this.props.id}`}>
+                    VIEW
                 </Link>
 
                 </div>

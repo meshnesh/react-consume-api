@@ -8,23 +8,19 @@ class Nav extends Component {
             <nav>
                 <div className="nav-wrapper">
 
-                    <Link to="/">
-                        <a href="index.html" className="brand-logo">
-                            Bright Events
-                        </a>
+                    <Link className="brand-logo" to="/">
+                        Bright Events
                     </Link>
                     
                     <ul id="nav-mobile hide-on-small-only" className="right hide-on-med-and-down">
                         <li>
-                        <Link to="/about">
-                            <a href="#">
+                            <Link to="/about">
                                 About
-                            </a>
-                        </Link>
+                            </Link>
                         </li>
                         <li>
                             <Link to="/register">
-                                <a>Register</a>
+                                Register
                             </Link>
                         </li>
                         <li><a href="manageTickets.html">Manage Events</a></li>
