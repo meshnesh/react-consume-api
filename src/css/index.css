@@ -6,6 +6,11 @@ h6{
     font-weight: 300;
 }
 
+.rowParent{
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+}
+
 .filter_section{
     position: absolute !important;
     left: 18%!important;
@@ -45,6 +50,12 @@ h6{
     margin-top: 1em;
     font-size: 4em;
 }
+
+.col.s8.form{
+    float: none;
+    margin: 0 auto;
+}
+
 /* media queries */
 @media only screen and (max-width: 1080px){
     .filter_section {
