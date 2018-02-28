@@ -7,7 +7,10 @@ import EventList from './Events/EventList';
 import Navigation from './Navigation/Navigation';
 import Footer from './Footer/Footer';
 
+import { history } from '../helpers';
+import { alertActions } from '../actions/alert.actions';
 import { fetchEvents } from '../actions/eventActions';
+
 
 @connect((state) => {
   return {
@@ -16,6 +19,16 @@ import { fetchEvents } from '../actions/eventActions';
 })
 
 class Main extends Component {
+  constructor(props) {
+      super(props);
+
+      const { dispatch } = this.props;
+      history.listen((location, action) => {
+          // clear alert on location change
+          dispatch(alertActions.clear());
+      });
+  }
+
   componentWillMount(){
 
     this.props.dispatch(fetchEvents());
@@ -26,6 +39,9 @@ class Main extends Component {
     return (
       <div>
         <Navigation />
+        {alert.message &&
+            <div className={`alert ${alert.type}`}>{alert.message}</div>
+        }
         <EventList events ={this.props.events}/>
         <Footer />
       </div>
@@ -33,5 +49,15 @@ class Main extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  const { alert } = state;
+  return {
+      alert
+  };
+}
 
-export default Main;
+// const connectedApp = connect(mapStateToProps)(Main);
+// export { connectedApp as Main }; 
+
+
+export default connect(mapStateToProps)(Main);
