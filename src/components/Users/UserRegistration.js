@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 
-import * as actions from '../../actions/user.actions';
+import { userActions } from '../../actions/user.actions';
 
 
 class UserRegistration extends Component {
@@ -27,14 +27,14 @@ class UserRegistration extends Component {
 
     }
 
-    handleChange(event) {
+    handleChange(e) {
         const { userData } = this.state;
-        userData[event.target.name] = event.target.value
+        userData[e.target.name] = e.target.value
         this.setState(userData)
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
+    handleSubmit(e) {
+        e.preventDefault();
         const  user = this.state
         this.props.userActions(user)
         this.setState({user: ""})
@@ -91,7 +91,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch){
     return{
-        userActions: user =>dispatch(actions.userActions(user))
+        userActions: user =>dispatch(userActions(user))
 
     }
 };
