@@ -11,6 +11,10 @@ h6{
     margin-bottom: 4rem;
 }
 
+nav .brand-logo {
+    padding-left: 15px;
+}
+
 .filter_section{
     position: absolute !important;
     left: 18%!important;
@@ -54,6 +58,29 @@ h6{
 .col.s8.form{
     float: none;
     margin: 0 auto;
+}
+
+.event_detail{
+    padding: 40px 15px;
+    border-bottom: 2px solid;
+}
+
+.card.horizontal .card-image {
+    max-width: 72%;
+}
+
+.card.horizontal .card-stacked .card-content{
+    margin-top: 40%;
+}
+
+.card.horizontal .card-stacked .card-content .btn{
+    margin-top: 64px;
+}
+
+@media only screen and (min-width: 960px){
+    .flow-text {
+        font-size: 16px;
+    }
 }
 
 /* media queries */
