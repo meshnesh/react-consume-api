@@ -4,7 +4,7 @@ import App from './components/Main';
 import About from './components/About';
 import UserRegistration from './components/Users/User';
 import UserLogin from './components/Users/UserLogin';
-import EditEvent from './components/Events/EditEvent';
+import EventDetail from './components/Events/EventDetail';
 
 
 export default () => {
@@ -15,7 +15,7 @@ export default () => {
 			  <Route exact path='/about' component={About}/>
 			  <Route exact path='/register' component={UserRegistration}/>
 			  <Route exact path='/login' component={UserLogin}/>
-			  <Route exact path='/:id' component={EditEvent}/>
+			  <Route exact path='/:id' component={EventDetail}/>
 			</Switch>
 		</BrowserRouter>
 	)
