@@ -13,3 +13,16 @@ export const fetchEvents = () => {
         })
   }
 }
+
+
+export const getEventDetail = (eventId) => {
+    return (dispatch) => {
+      instance.get(`/api/events/all/${eventId}`)
+        .then( (response) =>{
+          dispatch({type:'FETCH_EVENT_ID_FULFILLED', payload:response.data});
+        })
+        .catch( (err) => {
+          dispatch({type:'FETCH_EVENT_ID_REJECTED',payload:err})
+        })
+    }
+}
