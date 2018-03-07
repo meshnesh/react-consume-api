@@ -10,12 +10,6 @@ import Footer from './Footer/Footer';
 import { fetchEvents } from '../actions/eventActions';
 
 
-@connect((state) => {
-  return {
-    events: state.eventsReducer.events
-  }
-})
-
 class Main extends Component {
   componentWillMount(){
 
@@ -34,4 +28,10 @@ class Main extends Component {
   }
 }
 
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    events: state.eventsReducer.events
+  }
+}
+
+export default connect(mapStateToProps)(Main);
