@@ -3,28 +3,24 @@ import ReactDOM from "react-dom";
 import { Link } from 'react-router-dom';
 
 
-class Event extends Component{
+const event = (props) => (
 
-
-  render(){
-
-    return (
         <div className="col s12 m4">
 
             <div className="card">
                 <div className="card-image waves-effect waves-block waves-light">
 
-                <img className="activator" src={this.props.image_url}/>
+                <img className="activator" src={props.image_url}/>
 
                 </div>
 
                 <div className="card-content">
 
-                <span className="card-title grey-text text-darken-4">{this.props.title}</span>
-                <p> {this.props.location} </p>
-                <h6> {this.props.date} {this.props.time} </h6>
+                <span className="card-title grey-text text-darken-4">{props.title}</span>
+                <p> {props.location} </p>
+                <h6> {props.date} {props.time} </h6>
 
-                <Link className="waves-effect waves-light btn" to={`/${this.props.id}`}>
+                <Link className="waves-effect waves-light btn" to={`/${props.id}`}>
                     VIEW
                 </Link>
 
@@ -32,7 +28,6 @@ class Event extends Component{
             </div>
         </div>
     )
-  }
-}
+    
 
-export default Event;
+export default event;

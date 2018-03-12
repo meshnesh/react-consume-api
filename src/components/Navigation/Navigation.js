@@ -23,7 +23,11 @@ class Nav extends Component {
                                 Register
                             </Link>
                         </li>
-                        <li><a href="manageTickets.html">Manage Events</a></li>
+                        <li>
+                            <Link to="/profile">
+                                Manage Events
+                            </Link>
+                        </li>
                     </ul>
                     </div>
             </nav>

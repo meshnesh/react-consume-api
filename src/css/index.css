@@ -77,6 +77,20 @@ nav .brand-logo {
     margin-top: 64px;
 }
 
+.manage_tickets li {
+    display:inline;
+    padding: 16px 16px 16px 0px;
+}
+
+.collection .collection-item span{
+    color: grey;
+    font-weight: 400;
+}
+
+.collection .collection-item .event-rsvp{
+    float: right;
+}
+
 @media only screen and (min-width: 960px){
     .flow-text {
         font-size: 16px;

@@ -5,6 +5,7 @@ import About from './components/About';
 import UserRegistration from './components/Users/User';
 import UserLogin from './components/Users/UserLogin';
 import EventDetail from './components/Events/EventDetail';
+import UserProfile from './components/Users/UserProfile';
 
 
 export default () => {
@@ -14,6 +15,7 @@ export default () => {
 			  <Route exact path='/' component={App}/>
 			  <Route exact path='/about' component={About}/>
 			  <Route exact path='/register' component={UserRegistration}/>
+			  <Route exact path='/profile' component={UserProfile}/>
 			  <Route exact path='/login' component={UserLogin}/>
 			  <Route exact path='/:id' component={EventDetail}/>
 			</Switch>
