@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import store from '../store';
 
 const instance = axios.create({
@@ -8,15 +8,15 @@ const instance = axios.create({
 		Accept:'application/json',
 		ContentType:'application/json'
 	}
-})
+});
 
 instance.interceptors.request.use(function(config){
 	const{ access_token } = store.getState().auth;
 	if ( access_token ){
-		config.headers.Authorization =` Bearer $ access_token`
+		config.headers.Authorization = 'Bearer ' + access_token;
 	}
 	config.headers['Access-Control-Allow-Origin'] = '*';
-	return config
-	})
+	return config;
+});
 
 export default instance;

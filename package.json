@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "./node_modules/.bin/webpack-dev-server --content-base --inline --hot",
     "build": "webpack -p"
   },
@@ -20,7 +21,6 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -32,5 +32,27 @@
     "webpack-dev-server": "^1.16.2"
   },
   "author": "Antony Ng'ang'a",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "^22.4.1",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.5",
+    "eslint": "^4.18.2",
+    "eslint-plugin-react": "^7.7.0",
+    "ignore-styles": "^5.0.1",
+    "jest": "^22.4.2",
+    "jest-enzyme": "^6.0.0",
+    "jsdom": "^11.6.2",
+    "mocha": "^5.0.4",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^11.6.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-test-renderer": "15.6.1"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+  }
 }
