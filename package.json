@@ -53,6 +53,7 @@
     "react-test-renderer": "15.6.1"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+    "collectCoverage": true
   }
 }
