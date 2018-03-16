@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 import { userActions } from '../../actions/user.actions';
 
 
-class UserRegistration extends Component {
+export class UserRegistration extends Component {
     constructor(props) {
         super(props);
         this.state = {
