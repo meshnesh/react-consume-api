@@ -40,7 +40,7 @@ export class UserRegistration extends Component {
         this.setState({user: ""})
     };
 
-
+   
     render() {
         const { registering  } = this.props;
         const { userData, submitted } = this.state;
