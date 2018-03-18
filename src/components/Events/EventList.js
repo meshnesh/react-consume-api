@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Event from './EventItem';
 
+
 class EventList extends Component {
   render(){
     if(Object.getOwnPropertyNames(this.props.events).length === 0){
