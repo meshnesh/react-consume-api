@@ -1,31 +1,24 @@
-export const initialState = {
-    user:{},
-    login:false,
-    logged:false,
-    error: null
-}
+import * as types from '../actions/actionTypes';
+import initialState from './initialState';
 
-export default (state = initialState, action) => {
+
+export default (state = initialState.auth, action) => {
     switch (action.type) {
-        case 'LOGIN_USER_REQUEST':
+        case types.LOGIN_SUCCESS:
             return { 
             ...state,
-            login: true,
-            };
-        case 'LOGIN_USER_FULLIFIED':
+            loading: true,
+            token: action.payload.token,
+            message: action.payload.message,
+            authenticated: true
+            }
+
+        case types.SHOW_LOGIN:
             return {
             ...state,
             login: true,
-            logged: true,
-            user: action.payload,
             }
-        case 'LOGIN_USER_FAILURE':
-            return {
-                ...state,
-                login: false,
-                error: action.payload
-            }
-   
+
         default:
             return state
     }
