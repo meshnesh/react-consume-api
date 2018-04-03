@@ -4,6 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "npm run test -- --watch",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "./node_modules/.bin/webpack-dev-server --content-base --inline --hot",
     "build": "webpack -p"
@@ -28,6 +29,7 @@
     "redux-logger": "^2.7.4",
     "redux-promise-middleware": "^4.1.0",
     "redux-thunk": "^2.1.0",
+    "toastr": "^2.1.4",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.16.2"
   },
