@@ -12,33 +12,27 @@ export function loginSuccess(payload) {
   }
 }
 
-export function userActions(user){
+export function registrationSuccess(payload) {
   return {
-      type : userConstants.REGISTER_REQUEST,
-      payload :instance.post('api/auth/register', user)
-      .then((response) => {
-        console.log("user.register.action",response.data);
-      })
-      .catch((err) => {
-        console.log("user.register.action",err);
-      })
-    }
-};
+      type: types.REGISTER_SUCCESS,
+      payload
+  }
+}
 
-
-// export function userLoginActions(user){
-//   return {
-//     type : userConstants.LOGIN_USER_REQUEST,
-//     payload :instance.post('api/auth/login', user)
-//     .then( (response) => {
-//       dispatch(loginSuccess(resp.data));
-//     })
-//     .catch( (err) => {
-//       console.log("user.login.action",err);
-//     })
-    
-//   }
-// };
+export function userActions(user) {
+  return function (dispatch) {
+    dispatch(beginAjaxCall());
+    return instance.post('api/auth/register', user)
+    .then(resp => {
+      dispatch(registrationSuccess(resp.data));
+      toastr.success(resp.data.message);
+    })
+    .catch(error => {
+      dispatch(ajaxCallError(error));
+      toastr.error(error.response.data.error);
+    });
+  }
+}
 
 export function userLoginActions(user) {
   return function (dispatch) {
@@ -47,9 +41,8 @@ export function userLoginActions(user) {
       .post('api/auth/login', user)
       .then(resp => {
           dispatch(loginSuccess(resp.data));
+          toastr.success(resp.data.message);
       })
-      console.log("User Login",response.data)
-      .then(() => toastr.success('You are loged in'))
       .catch(error => {
           dispatch(ajaxCallError(error));
           toastr.error(error.response.data.error)
