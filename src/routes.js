@@ -12,13 +12,13 @@ export default () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-			  <Route exact path='/' component={App}/>
-			  <Route exact path='/about' component={About}/>
-			  <Route exact path='/register' component={UserRegistration}/>
-			  <Route exact path='/profile' component={UserProfile}/>
-			  <Route exact path='/login' component={UserLogin}/>
-			  <Route exact path='/:id' component={EventDetail}/>
+				<Route exact path='/' component={App}/>
+				<Route exact path='/about' component={About}/>
+				<Route exact path='/register' component={UserRegistration}/>
+				<Route exact path='/profile' component={UserProfile}/>
+				<Route exact path='/login' component={UserLogin}/>
+				<Route exact path='/:id' component={EventDetail}/>
 			</Switch>
 		</BrowserRouter>
-	)
-}
+	);
+};
