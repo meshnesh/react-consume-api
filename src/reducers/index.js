@@ -1,11 +1,13 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import eventsReducer from "./eventsReducer";
+import eventsReducer from './eventsReducer';
 import registration  from './registration.reducer';
-import singleEventReducer from './singleEventReducer'
+import singleEventReducer from './singleEventReducer';
+import authEventReducer from './authEventReducer';
 
 export default combineReducers({
-    eventsReducer,
-    auth:registration,
-    event:singleEventReducer
+	eventsReducer,
+	auth:registration,
+	event:singleEventReducer,
+	authEvent : authEventReducer
 });
