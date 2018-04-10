@@ -1,12 +1,17 @@
 export default {
-    auth: {
-        authenticated: false,
-        loading: false,
-        login: true,
-        error: false,
-        message: '',
-        token: null
-    },
-    events: [],
-    ajaxCallInProgress: 0
-}
+	authLogin: {
+		authenticated: false,
+		loading: false,
+		login: true,
+		error: false,
+		message: '',
+		token: null,
+	},
+	authRegister: {
+		user: {},
+		registered: false,
+		registering: true,
+	},
+	events: [],
+	ajaxCallInProgress: 0
+};
