@@ -10,12 +10,9 @@ const instance = axios.create({
 	}
 });
 
-instance.interceptors.request.use(function(config){
-	const{ access_token } = store.getState().auth;
-	if ( access_token ){
-		config.headers.Authorization = 'Bearer ' + access_token;
-	}
-	config.headers['Access-Control-Allow-Origin'] = '*';
+instance.interceptors.request.use((config)=>{
+	const access_token = localStorage.getItem('access_token');
+	config.headers.Authorization = `Bearer ${access_token}`;
 	return config;
 });
 
