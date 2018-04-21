@@ -12,6 +12,6 @@ export default {
 		registered: false,
 		registering: true,
 	},
-	events: [],
+	events: [{events: []}],
 	ajaxCallInProgress: 0
 };
