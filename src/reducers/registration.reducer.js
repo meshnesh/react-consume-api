@@ -1,33 +1,19 @@
-export const initialState = {
-    user:{},
-    registering:false,
-    registered:false,
-    error: null
-  }
-  
-  export default (state = initialState, action) => {
-      switch (action.type) {
-        case 'USERS_REGISTER_REQUEST':
-          return { 
-            ...state,
-            registering: true,
-          };
-        case 'USERS_REGISTER_SUCCESS':
-          return {
-            ...state,
-            registering: true,
-            registered:true,
-            user: action.payload,
-          }
-        case 'USERS_REGISTER_FAILURE':
-          return {
-              ...state,
-              registering: false,
-              error: action.payload
-          }
+import * as types from '../actions/actionTypes';
+import initialState from './initialState';
+
+
+export default (state = initialState.authRegister, action) => {
+	switch (action.type) {
+	case types.REGISTER_SUCCESS:
+		return {
+			...state,
+			registering: false,
+			registered:true,
+			user: action.payload,
+		};
    
-        default:
-          return state
-      }
-  }
+	default:
+		return state;
+	}
+};
   

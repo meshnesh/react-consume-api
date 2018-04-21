@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 // components
@@ -11,27 +11,26 @@ import { fetchEvents } from '../actions/eventActions';
 
 
 class Main extends Component {
-  componentWillMount(){
+	componentWillMount(){
 
-    this.props.dispatch(fetchEvents());
-  }
+		this.props.dispatch(fetchEvents());
+	}
 
-  render() {
-    console.log("From the main file ",this.props.events);
-    return (
-      <div>
-        <Navigation />
-        <EventList events ={this.props.events}/>
-        <Footer />
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div>
+				<Navigation />
+				<EventList events ={this.props.events}/>
+				<Footer />
+			</div>
+		);
+	}
 }
 
 const mapStateToProps = (state) => {
-  return {
-    events: state.eventsReducer.events
-  }
-}
+	return {
+		events: state.eventsReducer.events
+	};
+};
 
 export default connect(mapStateToProps)(Main);

@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 import  { getEventDetail } from '../../actions/eventActions'
 
 
-class EditEvent extends Component {
+export class EditEvent extends Component {
 	
 	componentWillMount = () => {
 		let eventId = this.props.match.params.id
