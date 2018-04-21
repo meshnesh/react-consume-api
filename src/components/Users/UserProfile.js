@@ -42,7 +42,7 @@ class UserProfile extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		authenticatedEvent: state.authEvent
+		authenticatedEvent: state.authEvent[0].events
 	};
 	
 };
