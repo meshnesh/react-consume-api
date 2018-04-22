@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const ProfileEvent = (props) => (
@@ -14,7 +15,9 @@ const ProfileEvent = (props) => (
 				</li>
 				<li>
 					<a>
-						<i className="far fa-edit"></i> Edit
+						<Link to={`/edit/${props.id}`}>
+							<i className="far fa-edit"></i> Edit
+						</Link>
 					</a>
 				</li>
 				<li>
