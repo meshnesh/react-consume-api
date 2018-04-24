@@ -9,12 +9,20 @@ import ProfileEvent from './ProfileEvents';
 
 import { userEventsAction } from '../../actions/authEvents.actions';
 
+
 class UserProfile extends Component {
+
+	constructor(props){
+		super(props);
+		this.state = {
+			toggle:false
+		};
+	}
 	componentWillMount(){
 		this.props.dispatch(userEventsAction());
 	}
 
-	
+
 	render() {
 		if(Object.getOwnPropertyNames(this.props.authenticatedEvent).length === 0){
 			return (<div>No events yet</div>);
@@ -26,9 +34,6 @@ class UserProfile extends Component {
 					event_category={ profileEvent.event_category } />
 			);
 		});
-
-
-
 
 		return(
 			<div>
