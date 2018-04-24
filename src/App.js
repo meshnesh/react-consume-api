@@ -9,6 +9,8 @@ import AppRoutes from './routes';
 import MainComponent from './components/Main.js';
 import store from './store.js'; 
 
+// dispatch action that will hyrate from local storage
+
 ReactDOM.render(
 	<Provider store={ store }>
 		<AppRoutes />
