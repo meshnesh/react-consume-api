@@ -9,6 +9,13 @@ export function getEventSuccess(payload) {
 	};
 }
 
+export function editEventSuccess(payload) {
+	return {
+		type: types.EDIT_EVENT_SUCCESS,
+		payload
+	};
+}
+
 export function userEventsAction() {
 	return function (dispatch) {
 		dispatch(beginAjaxCall());
@@ -20,6 +27,20 @@ export function userEventsAction() {
 			.catch(err => {
 				dispatch(ajaxCallError(err));
 				
+			});
+	};
+}
+
+export function editEventAction(eventId,event) {
+	return function (dispatch){
+		dispatch(beginAjaxCall());
+		return instance
+			.put(`api/events/${eventId}`, event)
+			.then(resp => {
+				dispatch(editEventSuccess(resp.data));
+			})
+			.catch(err => {
+				dispatch(ajaxCallError(err));
 			});
 	};
 }
