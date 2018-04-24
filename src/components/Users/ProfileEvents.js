@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Modal from '../Modal';
 
 
 const ProfileEvent = (props) => (
@@ -22,7 +23,7 @@ const ProfileEvent = (props) => (
 				</li>
 				<li>
 					<a>
-						<i className="fas fa-eye"></i> View
+						<Modal />
 					</a>
 				</li>
 			</ul>
