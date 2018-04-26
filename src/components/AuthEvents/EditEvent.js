@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactDOM from 'react-dom';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import DatePicker from 'material-ui/DatePicker';
 
 //components
 import Navigation from '../Navigation/Navigation';
@@ -25,12 +29,18 @@ class EditEvent extends Component{
     constructor(props){
 		super(props);
         this.state = {
-			eventData: initialState
+			eventData: initialState,
+			value: 1,
 		};
 		// console.log('Constructor',editEvent);
 		this.handleInputChange = this.handleInputChange.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+    
+	handleChange = (event, index, value, date) => this.setState({
+		value,
+	});
+	
 
 	componentWillReceiveProps(nextProps){
 		console.log('componentWillReceiveProps',nextProps)
@@ -42,10 +52,10 @@ class EditEvent extends Component{
         this.props.getEventAction(eventId)
     }
     
-    handleInputChange(e) {
+    handleInputChange(e, index, value,) {
         const { eventData } = this.state;
         eventData[e.target.name] = e.target.value;
-		this.setState(eventData);
+		this.setState({eventData,value});
 	}
 
 
@@ -56,12 +66,17 @@ class EditEvent extends Component{
 		console.log('handleSubmit', this.props);
 		this.props.editEventAction(eventId, event);
 		this.setState({eventData: initialState});
+		setTimeout(
+			function() {
+				this.props.history.push('/profile'); 
+			}
+				.bind(this), 1000);
 	}
     
 	render() {
 
 		const { eventData } = this.state
-		
+		console.log(this.state)
 		return(
 			<div>
 				<Navigation />
@@ -85,16 +100,26 @@ class EditEvent extends Component{
 						</div>
 						<div className="row">
 							<div className="input-field col s4">
-								<input id="date" type="text" name="date"className="validate" value={ eventData.date } onChange={ this.handleInputChange } />
-								<label class="active" for="date">Date</label>
+								{/* <input id="date" type="text" name="date"className="validate" value={ eventData.date } onChange={ this.handleInputChange } />
+								<label class="active" for="date">Date</label> */}
+								<DatePicker hintText="Landscape Dialog" mode="landscape" />
 							</div>
 							<div className="input-field col s4">
 								<input id="time" type="text" name="time" className="validate" value={ eventData.time } onChange={ this.handleInputChange } />
 								<label class="active" for="time">Time</label>
 							</div>
 							<div className="input-field col s4">
-								<input id="event_category" type="text" name="event_category" className="validate" value={ eventData.event_category } onChange={ this.handleInputChange } />
-								<label class="active" for="event_category">Event Category</label>
+
+								<SelectField
+									floatingLabelText="Select event Category"
+									value={eventData.id}
+									onChange={this.handleChange}
+									>
+									<MenuItem value={eventData.id} primaryText={eventData.title} />
+									<MenuItem value={3} primaryText="Weeknights" />
+									<MenuItem value={4} primaryText="Weekends" />
+									<MenuItem value={5} primaryText="Weekly" />
+								</SelectField>
 							</div>
 						</div>
 						<div className="row">
@@ -111,8 +136,10 @@ class EditEvent extends Component{
 				<Footer />
 			</div>
 		);
-    }
+	}
 }
+
+
 
 const mapStateToProps = (state) => {
 	return {
