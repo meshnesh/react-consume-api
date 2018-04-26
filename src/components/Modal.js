@@ -1,51 +1,12 @@
 import React from 'react';
+  
+const ModalBUtton = (props) => (
+	<div>
+		<a className="waves-effect waves-light btn modal-trigger" onClick={() => props.toggleModal(props.id)}>
+			<i className="fas fa-eye"></i> Modal
+		</a>
+	</div>
+	
+);
 
-const display = {
-	display: 'block'
-};
-
-const hide = {
-	display: 'none'
-};
-  
-class Modal extends React.Component {
-	constructor(props) {
-		super(props);
-		this.toggle = this.toggle.bind(this);
-  
-		this.state = {
-			toggle: false
-		};
-	}
-  
-	toggle(event) {
-		this.setState(prevState => ({
-			toggle: !prevState.toggle
-		}));
-	}
-  
-	render() {
-		var modal = [];
-		modal.push(
-			<div className="modal" style={this.state.toggle ? display : hide}>
-				<div className="modal-content">
-					<h4>Modal Header</h4>
-					<p>A bunch of text</p>
-				</div>
-				<div className="modal-footer">
-					<a className="btn" onClick={this.toggle}>Agree</a>
-				</div>
-			</div>
-		);
-		return (
-			<div>
-				<a className="waves-effect waves-light btn modal-trigger" onClick={this.toggle}>
-					<i className="fas fa-eye"></i> Modal
-				</a>
-				{modal}
-			</div>
-		);
-	}
-}
-
-export default Modal;
+export default ModalBUtton;
