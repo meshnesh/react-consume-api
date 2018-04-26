@@ -9,6 +9,9 @@ export default (state = initialState.events, action) => {
 
 	case types.EDIT_EVENT_SUCCESS:
 		return action.payload;
+	
+	case types.DELETE_EVENT_SUCCESS:
+		return action.payload;
     
 	default:
 		return state;
