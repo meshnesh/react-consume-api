@@ -7,6 +7,7 @@ import UserLogin from './components/Users/UserLogin';
 import EventDetail from './components/Events/EventDetail';
 import UserProfile from './components/Users/UserProfile';
 import EditEvent from './components/AuthEvents/EditEvent';
+import EventCategory from './components/category/GetCategories';
 
 
 export default () => {
@@ -14,6 +15,7 @@ export default () => {
 		<HashRouter>
 			<Switch>
 				<Route exact path='/' component={App}/>
+				<Route component={EventCategory} exact path='/category' />
 				<Route component={EditEvent} exact path='/edit/:id' />
 				<Route exact path='/register' component={UserRegistration}/>
 				<Route exact path='/profile' component={UserProfile}/>
