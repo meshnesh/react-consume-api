@@ -23,6 +23,13 @@ export function deleteEvent(payload) {
 	};
 }
 
+export function getEventCategory(payload) {
+	return {
+		type: types.GET_EVENT_CARTEGORY,
+		payload
+	};
+}
+
 export function userEventsAction() {
 	return function (dispatch) {
 		dispatch(beginAjaxCall());
@@ -62,6 +69,21 @@ export function deleteEventAction(eventId) {
 			})
 			.catch(err => {
 				dispatch(ajaxCallError(err));
+			});
+	};
+}
+
+export function getEventCategories() {
+	return function (dispatch) {
+		dispatch(beginAjaxCall());
+		return instance
+			.get('api/category')
+			.then(resp => {
+				dispatch(getEventCategory(resp.data));
+			})
+			.catch(err => {
+				dispatch(ajaxCallError(err));
+				
 			});
 	};
 }
