@@ -8,7 +8,7 @@ class EventList extends Component {
 		if(Object.getOwnPropertyNames(this.props.events).length === 0){
 			return (<div></div>);
 		}
-		var eventNodes = this.props.events.map( ( event ) => {
+		const eventNodes = this.props.events.map( ( event ) => {
 			return (
 				<Event key={ event.id } id={event.id} image_url={ event.image_url } title={ event.title } location={ event.location }
 					date={ event.date } time={ event.time } description={ event.description }
