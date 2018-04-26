@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Modal from '../Modal';
+import ModalBUtton from '../Modal';
 
 
 const ProfileEvent = (props) => (
 	<div className="collection">
-		<div className="collection-item" id={ props.id }>
-			<h4>{ props.title }</h4>
-			<span>{ props.date } at { props.time }</span> <span className="event-rsvp">0 RSVP</span>
+		<div className="collection-item" id={ props.profileEvent.id }>
+			<h4>{ props.profileEvent.title }</h4>
+			<span>{ props.profileEvent.date } at { props.profileEvent.time }</span> <span className="event-rsvp">0 RSVP</span>
 			<ul className="manage_tickets">
 				<li>
 					<a>
@@ -16,14 +16,14 @@ const ProfileEvent = (props) => (
 				</li>
 				<li>
 					<a>
-						<Link to={`/edit/${props.id}`}>
+						<Link to={`/edit/${props.profileEvent.id}`}>
 							<i className="far fa-edit"></i> Edit
 						</Link>
 					</a>
 				</li>
 				<li>
 					<a>
-						<Modal />
+						<ModalBUtton toggleModal={props.toggleModal} id={props.profileEvent.id}/>
 					</a>
 				</li>
 			</ul>
