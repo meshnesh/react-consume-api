@@ -37,6 +37,11 @@ export class UserLogin extends Component {
 		const  user = this.state;
 		this.props.userLoginActions(user);
 		this.setState({user: ''});
+		setTimeout(
+			function() {
+				this.props.history.push('/'); 
+			}
+				.bind(this), 1000);
 	}
 
 	render() {
