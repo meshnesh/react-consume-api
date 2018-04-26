@@ -12,6 +12,9 @@ export default (state = initialState.events, action) => {
 	
 	case types.DELETE_EVENT_SUCCESS:
 		return action.payload;
+
+	case types.GET_EVENT_CARTEGORY:
+		return action.payload;
     
 	default:
 		return state;
