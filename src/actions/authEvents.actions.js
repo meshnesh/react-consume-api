@@ -24,6 +24,13 @@ export function editEventSuccess(payload) {
 	};
 }
 
+export function deleteEvent(payload) {
+	return {
+		type: types.DELETE_EVENT_SUCCESS,
+		payload
+	};
+}
+
 export function userEventsAction() {
 	return function (dispatch) {
 		dispatch(beginAjaxCall());
@@ -63,6 +70,20 @@ export function editEventAction(eventId,event) {
 			.put(`api/events/${eventId}`, event)
 			.then(resp => {
 				dispatch(editEventSuccess(resp.data));
+			})
+			.catch(err => {
+				dispatch(ajaxCallError(err));
+			});
+	};
+}
+
+export function deleteEventAction(eventId) {
+	return function (dispatch){
+		dispatch(beginAjaxCall());
+		return instance
+			.delete(`api/events/${eventId}`)
+			.then(resp => {
+				dispatch(deleteEvent(resp.data));
 			})
 			.catch(err => {
 				dispatch(ajaxCallError(err));
