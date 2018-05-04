@@ -12,6 +12,10 @@ export default {
 		registered: false,
 		registering: true,
 	},
-	events: [],
+	events: {
+		events: [],
+		message: {},
+		categories: [],
+	},
 	ajaxCallInProgress: 0
 };
