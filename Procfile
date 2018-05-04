@@ -1,1 +1,1 @@
-web: ./node_modules/.bin/webpack-dev-server --content-base --inline --hot
+web: npm run dev
