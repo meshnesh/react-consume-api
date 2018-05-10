@@ -7,14 +7,38 @@ import { connect } from 'react-redux';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 
-import  { getEventDetail } from '../../actions/eventActions'
+import  { getEventDetail } from '../../actions/eventActions';
+
+import { rsvpEvent } from '../../actions/authEvents.actions';
 
 
 export class EditEvent extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			rsvp: false
+		};
+
+		this.handleRsvp = this.handleRsvp.bind(this);
+	}
 	
 	componentWillMount = () => {
 		let eventId = this.props.match.params.id
 		this.props.dispatch(getEventDetail(eventId))
+	}
+
+	handleRsvp() {
+		let eventId = this.props.match.params.id
+		this.props.dispatch(rsvpEvent(eventId))
+		this.setState({
+			rsvp: true
+		});
+		setTimeout(
+			function() {
+				this.props.history.push('/'); 
+			}
+				.bind(this), 4000);
 	}
 	
 
@@ -37,7 +61,7 @@ export class EditEvent extends Component {
 							<p> <i class="fas fa-map-marker-alt"></i> { eventNode.location } </p>
 							<h6><i class="far fa-calendar-alt"></i> { eventNode.date } at { eventNode.time } </h6>
 							<h6> <strong>Event Category</strong>: { eventNode.event_category } </h6>
-							<a className="waves-effect waves-light btn">
+							<a onClick={this.handleRsvp} className="waves-effect waves-light btn">
 								RSVP
 							</a>
 						</div>
@@ -52,7 +76,7 @@ export class EditEvent extends Component {
 						</span>
 					</div>
 				</div>
-				{/* <h1>Mangoes</h1>  */}
+				
 				<Footer />
 			</div>
 		)
