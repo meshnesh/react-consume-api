@@ -18,6 +18,9 @@ export default (state = initialState.events, action) => {
 
 	case types.GET_EVENT_CATEGORY:
 		return Object.assign({}, ...state, {categories: action.payload});
+	
+	case types.SUCCESSFUL_RSVP:
+		return Object.assign({}, ...state, {rsvp: action.payload});
     
 	default:
 		return state;
