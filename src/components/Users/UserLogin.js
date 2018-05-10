@@ -82,7 +82,7 @@ export class UserLogin extends Component {
 
 const mapStateToProps = (state) => {
 	return{
-		userInfo:state.auth
+		userInfo:state.authLogin
 	};
 };
 
