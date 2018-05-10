@@ -2,6 +2,7 @@ import * as types from './actionTypes';
 import instance from '../_services/user.service';
 import toastr from 'toastr';
 import { beginAjaxCall, ajaxCallError } from './AjaxStatusActions';
+import toastr from 'toastr';
 
 export function getEventSuccess(payload) {
 	return {
@@ -34,6 +35,13 @@ export function deleteEvent(payload) {
 export function getEventCategory(payload) {
 	return {
 		type: types.GET_EVENT_CATEGORY,
+		payload
+	};
+}
+
+export function rsvpEventSuccess(payload) {
+	return {
+		type: types.SUCCESSFUL_RSVP,
 		payload
 	};
 }
@@ -105,6 +113,22 @@ export function getEventCategories() {
 			.get('api/category')
 			.then(resp => {
 				dispatch(getEventCategory(resp.data));
+			})
+			.catch(err => {
+				dispatch(ajaxCallError(err));
+				
+			});
+	};
+}
+
+export function rsvpEvent(eventId) {
+	return function (dispatch) {
+		dispatch(beginAjaxCall());
+		return instance
+			.post(`api/events/${eventId}/rsvp`)
+			.then(resp => {
+				dispatch(rsvpEventSuccess(resp.data));
+				toastr.success(resp.data.message);
 			})
 			.catch(err => {
 				dispatch(ajaxCallError(err));
