@@ -2,7 +2,7 @@ export default {
 	authLogin: {
 		authenticated: false,
 		loading: false,
-		login: true,
+		isLoggedIn: true,
 		error: false,
 		message: '',
 		token: null,
@@ -16,6 +16,9 @@ export default {
 		events: [],
 		message: {},
 		categories: [],
+		rsvp:{
+			rsvp: false
+		}
 	},
 	ajaxCallInProgress: 0
 };
