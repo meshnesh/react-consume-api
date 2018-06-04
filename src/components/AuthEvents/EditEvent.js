@@ -8,6 +8,7 @@ import DatePicker from 'material-ui/DatePicker';
 //components
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
+import Category from '../category/GetCategories';
 
 import { getEventDetail } from '../../actions/eventActions';
 import { editEventAction } from '../../actions/authEvents.actions';
@@ -20,7 +21,7 @@ const initialState = {
 	date: '',
 	description: '',
 	image_url:'',
-	event_category:''
+	event_category: null
 };
 
 
@@ -30,20 +31,15 @@ class EditEvent extends Component{
 		super(props);
         this.state = {
 			eventData: initialState,
-			value: 1,
 		};
 		// console.log('Constructor',editEvent);
-		this.handleInputChange = this.handleInputChange.bind(this)
+		this.handleInputChange = this.handleInputChange.bind(this);
+		this.handleCategoryChange = this.handleCategoryChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-    
-	handleChange = (event, index, value, date) => this.setState({
-		value,
-	});
-	
+
 
 	componentWillReceiveProps(nextProps){
-		console.log('componentWillReceiveProps',nextProps)
 		this.setState({eventData: nextProps.editEvent.event})
 	}
 
@@ -51,13 +47,26 @@ class EditEvent extends Component{
 		let eventId = this.props.match.params.id
         this.props.getEventAction(eventId)
     }
-    
-    handleInputChange(e, index, value,) {
+
+    handleInputChange(e) {
         const { eventData } = this.state;
         eventData[e.target.name] = e.target.value;
-		this.setState({eventData,value});
+		this.setState({eventData});
 	}
 
+	handleCategoryChange(event, index, value) {
+		const { eventData } = this.state
+		eventData.event_category = value
+		this.setState({eventData})
+	}
+
+	setFechaDesde(x,event){
+        // console.log('initial, ',event);
+		// console.log(JSON.stringify(x));
+		const { eventData } = this.state
+		eventData.date = event
+		this.setState({eventData})
+    }
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -68,11 +77,11 @@ class EditEvent extends Component{
 		this.setState({eventData: initialState});
 		setTimeout(
 			function() {
-				this.props.history.push('/profile'); 
+				this.props.history.push('/profile');
 			}
 				.bind(this), 1000);
 	}
-    
+
 	render() {
 
 		const { eventData } = this.state
@@ -102,24 +111,14 @@ class EditEvent extends Component{
 							<div className="input-field col s4">
 								{/* <input id="date" type="text" name="date"className="validate" value={ eventData.date } onChange={ this.handleInputChange } />
 								<label class="active" for="date">Date</label> */}
-								<DatePicker hintText="Landscape Dialog" mode="landscape" />
+								<DatePicker name="date" onChange={(x, event) => this.setFechaDesde(x,event)} defaultDate={new Date()} hintText="Landscape Dialog" mode="landscape" />
 							</div>
 							<div className="input-field col s4">
 								<input id="time" type="text" name="time" className="validate" value={ eventData.time } onChange={ this.handleInputChange } />
 								<label class="active" for="time">Time</label>
 							</div>
 							<div className="input-field col s4">
-
-								<SelectField
-									floatingLabelText="Select event Category"
-									value={eventData.id}
-									onChange={this.handleChange}
-									>
-									<MenuItem value={eventData.id} primaryText={eventData.title} />
-									<MenuItem value={3} primaryText="Weeknights" />
-									<MenuItem value={4} primaryText="Weekends" />
-									<MenuItem value={5} primaryText="Weekly" />
-								</SelectField>
+								<Category handleCategoryChange={this.handleCategoryChange} />
 							</div>
 						</div>
 						<div className="row">

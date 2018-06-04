@@ -16,6 +16,7 @@ export default (state = initialState.authLogin, action) => {
 		return {
 			...state,
 			login: true,
+			authenticated: true,
 		};
 
 	case types.REGISTER_SUCCESS:

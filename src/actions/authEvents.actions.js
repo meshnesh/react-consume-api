@@ -33,7 +33,7 @@ export function deleteEvent(payload) {
 
 export function getEventCategory(payload) {
 	return {
-		type: types.GET_EVENT_CARTEGORY,
+		type: types.GET_EVENT_CATEGORY,
 		payload
 	};
 }

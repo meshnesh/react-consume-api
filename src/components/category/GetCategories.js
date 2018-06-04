@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
 import { getEventCategories } from '../../actions/authEvents.actions';
-import CategoryItem from './CategoryItem';
+
 
 const initialState = {
 	categories: []
@@ -14,38 +17,37 @@ class Category extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			initialState
+			initialState,
+			value: 1,
 		};
 	}
-
     
 	componentWillMount() {
 		this.props.getEventCategories();
 	}
+
     
+
 	render() {
 
-		if(Object.getOwnPropertyNames(this.props.categories).length === 0){
-			return (<div></div>);
-		}
-		const categoryNode = this.props.categories.map( ( category ) => {
-
-			return (
-				<CategoryItem key={ category.id } id={category.id} 
-					name={category.category_name}/>
-			);
-		});
 		return (
-			<div>
-				{ categoryNode }
-			</div>
+			<SelectField name='event_category'
+				floatingLabelText="Select event Category"
+				value={this.state.value}
+				onChange={this.props.handleCategoryChange }
+			>
+				{ 
+					this.props.categories.map(category => 
+						<MenuItem key={category.id} value={category.id} primaryText={category.category_name} /> ) 
+				}
+			</SelectField>
 		);
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
-		categories: state.authEvent
+		categories: state.authEvent.categories
 	};
 };
 

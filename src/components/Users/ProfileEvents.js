@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ModalBUtton from '../Modal';
 
 
+
 const ProfileEvent = (props) => (
 	<div className="collection">
 		<div className="collection-item" id={ props.profileEvent.id }>

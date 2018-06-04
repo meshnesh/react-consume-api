@@ -47,7 +47,7 @@ class UserProfile extends Component {
 
 
 	render() {
-		if(Object.getOwnPropertyNames(this.props.authenticatedEvent).length === 0){
+		if(this.props.authenticatedEvent.length === 0){
 			return (<div>No events yet</div>);
 		}
 		const eventNodes = this.props.authenticatedEvent.map( ( profileEvent ) => {
@@ -80,7 +80,7 @@ class UserProfile extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		authenticatedEvent: state.authEvent[0].events
+		authenticatedEvent: state.authEvent.events
 	};
 	
 };
