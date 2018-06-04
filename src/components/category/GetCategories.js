@@ -51,9 +51,9 @@ const mapStateToProps = (state) => {
 	};
 };
 
-const mapDispathToProps = (dispatch) => {
+const mapDispachToProps = (dispatch) => {
 	return {
 		getEventCategories: () => dispatch(getEventCategories())
 	};
 };
-export default connect(mapStateToProps, mapDispathToProps)(Category);
+export default connect(mapStateToProps, mapDispachToProps)(Category);
