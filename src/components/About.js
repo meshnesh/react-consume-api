@@ -9,7 +9,7 @@ export default class About extends Component {
 		return (
 			<div>
                 <Navigation />
-				About Page My N***a
+				About Page My
                 <Footer />
 			</div>
 		)
