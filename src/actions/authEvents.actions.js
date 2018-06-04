@@ -61,6 +61,7 @@ export function userEventsAction() {
 	};
 }
 
+<<<<<<< HEAD
 export function userCreateEventsAction(event) {
 	return function (dispatch) {
 		dispatch(beginAjaxCall());
@@ -78,6 +79,8 @@ export function userCreateEventsAction(event) {
 	};
 }
 
+=======
+>>>>>>> a0b450172841a1f53611c294b3e8c7a54a921ec1
 export function editEventAction(eventId,event) {
 	return function (dispatch){
 		dispatch(beginAjaxCall());

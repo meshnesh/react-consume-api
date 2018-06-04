@@ -8,7 +8,7 @@ export default (state = initialState.events, action) => {
 		return [Object.assign({}, state, {events: action.payload})];
 
 	case types.ADD_EVENT_SUCCESS:
-		return action.payload;
+		return Object.assign({}, ...state, {events: action.payload});
 
 	case types.EDIT_EVENT_SUCCESS:
 		return state;
