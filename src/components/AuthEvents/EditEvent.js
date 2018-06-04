@@ -32,7 +32,6 @@ class EditEvent extends Component{
         this.state = {
 			eventData: initialState,
 		};
-		// console.log('Constructor',editEvent);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleCategoryChange = this.handleCategoryChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,8 +60,6 @@ class EditEvent extends Component{
 	}
 
 	setFechaDesde(x,event){
-        // console.log('initial, ',event);
-		// console.log(JSON.stringify(x));
 		const { eventData } = this.state
 		eventData.date = event
 		this.setState({eventData})
@@ -72,7 +69,6 @@ class EditEvent extends Component{
 		e.preventDefault();
 		const event = this.state.eventData;
 		let eventId = this.props.match.params.id
-		console.log('handleSubmit', this.props);
 		this.props.editEventAction(eventId, event);
 		this.setState({eventData: initialState});
 		setTimeout(
@@ -85,7 +81,6 @@ class EditEvent extends Component{
 	render() {
 
 		const { eventData } = this.state
-		console.log(this.state)
 		return(
 			<div>
 				<Navigation />
@@ -109,8 +104,6 @@ class EditEvent extends Component{
 						</div>
 						<div className="row">
 							<div className="input-field col s4">
-								{/* <input id="date" type="text" name="date"className="validate" value={ eventData.date } onChange={ this.handleInputChange } />
-								<label class="active" for="date">Date</label> */}
 								<DatePicker name="date" onChange={(x, event) => this.setFechaDesde(x,event)} defaultDate={new Date()} hintText="Landscape Dialog" mode="landscape" />
 							</div>
 							<div className="input-field col s4">

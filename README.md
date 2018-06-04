@@ -13,7 +13,7 @@ P.S: Feedback is welcome
 ### Install the dependacies
 
 * Run the command `npm install`
-* Run the project run the command `npm run de`
+* Run the project run the command `npm run dev`
 
 ## View the project
 

@@ -2,7 +2,7 @@ export default {
 	authLogin: {
 		authenticated: false,
 		loading: false,
-		isLoggedIn: true,
+		isLoggedIn: false,
 		error: false,
 		message: '',
 		token: null,
