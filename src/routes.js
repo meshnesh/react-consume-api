@@ -6,6 +6,7 @@ import UserRegistration from './components/Users/User';
 import UserLogin from './components/Users/UserLogin';
 import EventDetail from './components/Events/EventDetail';
 import UserProfile from './components/Users/UserProfile';
+import AddEvent from './components/AuthEvents/AddEvent';
 
 
 export default () => {
@@ -13,11 +14,13 @@ export default () => {
 		<BrowserRouter>
 			<Switch>
 				<Route exact path='/' component={App}/>
+				<Route exact path='/addevent' component={AddEvent} />
 				<Route exact path='/about' component={About}/>
 				<Route exact path='/register' component={UserRegistration}/>
 				<Route exact path='/profile' component={UserProfile}/>
 				<Route exact path='/login' component={UserLogin}/>
 				<Route exact path='/:id' component={EventDetail}/>
+			
 			</Switch>
 		</BrowserRouter>
 	);
