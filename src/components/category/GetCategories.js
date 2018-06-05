@@ -31,8 +31,8 @@ class Category extends Component {
 	render() {
 
 		return (
-			<SelectField name='event_category'
-				floatingLabelText="Select event Category"
+			<SelectField name='event_category' className="Filter"
+				// floatingLabelText="Select event Category"
 				value={this.state.value}
 				onChange={this.props.handleCategoryChange }
 			>
