@@ -3,33 +3,21 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { LoginButton, LogoutButton } from './LoginButton';
-import { userLogoutActions } from '../../actions/user.actions';
+import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
 
 
 class Nav extends Component {
 
 	constructor(props) {
 		super(props);
-		this.handleLoginClick = this.handleLoginClick.bind(this);
 		this.handleLogoutClick = this.handleLogoutClick.bind(this);
-		this.logOutUser=this.logOutUser.bind(this);
-		this.state = {isLoggedIn: false};
+		this.state = {isLoggedIn: this.props.userInfo.isLoggedIn};
 	}
-	
-	handleLoginClick() {
-		this.setState({isLoggedIn: true});
-		console.log('this state is logged in', this.state);
-	}
+
 	
 	handleLogoutClick() {
 		this.setState({isLoggedIn: false});
-		console.log('this state is logged out', this.state);
-	}
-
-	logOutUser(e) {
-		e.preventDefault();
 		this.props.userLogoutActions();
-		console.log('Logged out function');
 	}
 
 	render() {
@@ -38,10 +26,12 @@ class Nav extends Component {
 		const button = isLoggedIn ? (
 			<LogoutButton onClick={this.handleLogoutClick} />
 		) : (
-			<LoginButton onClick={this.handleLoginClick} />
+			<LoginButton>
+				<Link to="/register">
+					Register
+				</Link>
+			</LoginButton>
 		);
-
-		console.log('this state log is', this.state);
 
 		return (
 			<nav>
@@ -63,22 +53,13 @@ class Nav extends Component {
 							</Link>
 						</li>
 						<li>
-							{/* {button} */}
-							<Link to="/register">
-                                Register
-							</Link>
+							{button}
 						</li>
 						<li>
 							<Link to="/profile">
                                 Manage Events
 							</Link>
 						</li>
-						<li>
-							<a href="#" onClick={this.logOutUser}>
-                                Log out
-							</a>
-						</li>
-						
 					</ul>
 				</div>
 			</nav>
