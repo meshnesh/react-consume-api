@@ -4,18 +4,18 @@ import ModalBUtton from '../Modal';
 
 
 
-export function LoginButton(props) {
+export function LoginButton() {
 	return (
-		<button onClick={props.onClick}>
-        Login
-		</button>
+		<Link to="/register">
+			Register
+		</Link>
 	);
 }
 
 export function LogoutButton(props) {
 	return (
-		<button onClick={props.onClick}>
-        Logout
-		</button>
+		<a onClick={props.onClick}>
+			Log out
+		</a>
 	);
 }
