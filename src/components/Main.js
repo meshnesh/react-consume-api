@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import EventList from './Events/EventList';
 import Navigation from './Navigation/Navigation';
 import Footer from './Footer/Footer';
+import Search from './Search/Search';
 
 import { fetchEvents } from '../actions/eventActions';
 
@@ -22,6 +23,7 @@ class Main extends Component {
 			
 			<div>
 				<Navigation />
+				<Search />
 				<EventList events ={this.props.events}/>
 				<Footer />
 			</div>
