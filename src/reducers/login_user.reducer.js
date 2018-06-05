@@ -10,12 +10,15 @@ export default (state = initialState.authLogin, action) => {
 			loading: true,
 			token: action.payload.token,
 			authenticated: true,
+			isLoggedIn: true,
 		};
 
 	case types.SHOW_LOGIN:
 		return {
 			...state,
 			login: true,
+			authenticated: true,
+			isLoggedIn: true,
 		};
 
 	case types.REGISTER_SUCCESS:
