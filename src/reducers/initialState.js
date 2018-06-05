@@ -12,13 +12,13 @@ export default {
 		registered: false,
 		registering: true,
 	},
-	events: {
+	events: [{
 		events: [],
 		message: {},
 		categories: [],
 		rsvp:{
 			rsvp: false
 		}
-	},
+	}],
 	ajaxCallInProgress: 0
 };
