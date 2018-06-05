@@ -30,6 +30,15 @@ export default (state = initialState.authLogin, action) => {
 			authenticated: true,
 			registered:true,
 		};
+	case types.LOGOUT_SUCCESS:
+		return { 
+			...state,
+			loading: true,
+			login:false,
+			message: action.payload.message,
+			authenticated: false,
+			isLoggedIn: false,
+		};
 
 	default:
 		return state;
