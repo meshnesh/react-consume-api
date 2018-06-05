@@ -47,7 +47,7 @@ class Category extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		categories: state.authEvent.categories
+		categories: state.authEvent[0].categories
 	};
 };
 
