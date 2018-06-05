@@ -1,9 +1,48 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { LoginButton, LogoutButton } from './LoginButton';
+import { userLogoutActions } from '../../actions/user.actions';
 
 
 class Nav extends Component {
+
+	constructor(props) {
+		super(props);
+		this.handleLoginClick = this.handleLoginClick.bind(this);
+		this.handleLogoutClick = this.handleLogoutClick.bind(this);
+		this.logOutUser=this.logOutUser.bind(this);
+		this.state = {isLoggedIn: false};
+	}
+	
+	handleLoginClick() {
+		this.setState({isLoggedIn: true});
+		console.log('this state is logged in', this.state);
+	}
+	
+	handleLogoutClick() {
+		this.setState({isLoggedIn: false});
+		console.log('this state is logged out', this.state);
+	}
+
+	logOutUser(e) {
+		e.preventDefault();
+		this.props.userLogoutActions();
+		console.log('Logged out function');
+	}
+
 	render() {
+		const isLoggedIn = this.state.isLoggedIn;
+    
+		const button = isLoggedIn ? (
+			<LogoutButton onClick={this.handleLogoutClick} />
+		) : (
+			<LoginButton onClick={this.handleLoginClick} />
+		);
+
+		console.log('this state log is', this.state);
+
 		return (
 			<nav>
 				<div className="nav-wrapper">
@@ -24,6 +63,7 @@ class Nav extends Component {
 							</Link>
 						</li>
 						<li>
+							{/* {button} */}
 							<Link to="/register">
                                 Register
 							</Link>
@@ -33,6 +73,11 @@ class Nav extends Component {
                                 Manage Events
 							</Link>
 						</li>
+						<li>
+							<a href="#" onClick={this.logOutUser}>
+                                Log out
+							</a>
+						</li>
 						
 					</ul>
 				</div>
@@ -41,4 +86,16 @@ class Nav extends Component {
 	} 
 }
 
-export default Nav;
+const mapStateToProps = state => {
+	return{
+		userInfo:state.authLogin
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		userLogoutActions: () =>dispatch(userLogoutActions())
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
