@@ -118,6 +118,18 @@ nav .brand-logo {
     display: block;
 }
 
+.search{
+    margin: 8em;
+}
+
+input[type=text]:not(.browser-default) {
+    height: 2.6rem;
+}
+
+.Filter {
+    width: 400px!important;
+}
+
 @media only screen and (min-width: 960px){
     .flow-text {
         font-size: 16px;
