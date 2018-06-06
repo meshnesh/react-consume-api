@@ -7,7 +7,7 @@ export default (state = initialState.authLogin, action) => {
 	case types.LOGIN_SUCCESS:
 		return { 
 			...state,
-			loading: true,
+			loading: false,
 			token: action.payload.token,
 			authenticated: true,
 			isLoggedIn: true,
