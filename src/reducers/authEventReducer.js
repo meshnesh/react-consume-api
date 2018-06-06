@@ -5,7 +5,7 @@ import initialState from './initialState';
 export default (state = initialState.events, action) => {
 	switch (action.type) {
 	case types.GET_AUTH_EVENT_SUCCESS:
-		return [Object.assign({}, state, {events: action.payload})];
+		return [Object.assign({}, ...state, {events: action.payload})];
 
 	case types.ADD_EVENT_SUCCESS:
 		return Object.assign({}, ...state, {events: action.payload});
