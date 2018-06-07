@@ -1,0 +1,7 @@
+import reducers from '../../reducers';
+
+test('reducers', () => {
+	let state;
+	state = reducers({eventsReducer:{events:[],fetching:false,fetched:false,error:null},auth:{user:{},registered:false,registering:true},authLogin:{authenticated:true,loading:false,isLoggedIn:true,error:false,message:'',token:'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MjgzNzIzOTAsImlhdCI6MTUyODI4NTk5MCwic3ViIjoxfQ.SSBz1YR8T35VpyRa4ph-WCXkYktHDtedbjJ9jKUiNJ4'},event:{event:{},fetching:false,fetched:false,error:null},authEvent:[{events:[],message:{},categories:[],rsvp:{rsvp:false}}]}, {type:'GET_EVENT_CATEGORY',payload:[{category_name:'Activity',id:1},{category_name:'Hiking',id:2},{category_name:'Swimming',id:3}]});
+	expect(state).toEqual({eventsReducer:{events:[],fetching:false,fetched:false,error:null},auth:{user:{},registered:false,registering:true},authLogin:{authenticated:true,loading:false,isLoggedIn:true,error:false,message:'',token:'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MjgzNzIzOTAsImlhdCI6MTUyODI4NTk5MCwic3ViIjoxfQ.SSBz1YR8T35VpyRa4ph-WCXkYktHDtedbjJ9jKUiNJ4'},event:{event:{},fetching:false,fetched:false,error:null},authEvent:[{'0':{events:[],message:{},categories:[],rsvp:{rsvp:false}},categories:[{category_name:'Activity',id:1},{category_name:'Hiking',id:2},{category_name:'Swimming',id:3}]}]});
+});
