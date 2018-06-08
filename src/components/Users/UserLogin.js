@@ -37,6 +37,12 @@ export class UserLogin extends Component {
 		const  user = this.state;
 		this.props.userLoginActions(user);
 		this.setState({user: ''});
+		// woks even when login is errored
+		setTimeout(
+			function() {
+				this.props.history.push('/'); 
+			}
+				.bind(this), 1000);
 	}
 
 	render() {
@@ -76,7 +82,7 @@ export class UserLogin extends Component {
 
 const mapStateToProps = (state) => {
 	return{
-		userInfo:state.auth
+		userInfo:state.authLogin
 	};
 };
 

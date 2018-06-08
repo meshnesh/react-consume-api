@@ -1,3 +1,13 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
 a{
     color: #567714;
 }
@@ -89,6 +99,35 @@ nav .brand-logo {
 
 .collection .collection-item .event-rsvp{
     float: right;
+}
+
+.btn-floating.btn-large {
+        position: fixed;
+        right: 16px;
+        bottom: 40px;
+}
+
+.page-footer .footer-copyright {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.modal {
+    z-index: 10;
+    display: block;
+}
+
+.search{
+    margin: 8em;
+}
+
+input[type=text]:not(.browser-default) {
+    height: 2.6rem;
+}
+
+.Filter {
+    width: 400px!important;
 }
 
 @media only screen and (min-width: 960px){

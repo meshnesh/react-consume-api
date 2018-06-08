@@ -15,14 +15,17 @@ class Main extends Component {
 
 		this.props.dispatch(fetchEvents());
 	}
+	
 
 	render() {
 		return (
+			
 			<div>
 				<Navigation />
 				<EventList events ={this.props.events}/>
 				<Footer />
 			</div>
+		
 		);
 	}
 }
