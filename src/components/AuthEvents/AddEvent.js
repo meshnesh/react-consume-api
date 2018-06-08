@@ -40,6 +40,11 @@ class AddEvent extends Component {
 		const  event = this.state.eventData;
 		this.props.userCreateEventsAction(event);
 		this.setState({eventData: initialState});
+		setTimeout(
+			function() {
+				this.props.history.push('/profile');
+			}
+				.bind(this), 1000);
 	}
 
 	render() {
