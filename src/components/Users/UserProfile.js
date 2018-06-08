@@ -50,9 +50,15 @@ class UserProfile extends Component {
 
 
 	render() {
-		console.log('UserProfile one',this.props.authenticatedEvent);
+		// check if the event data brought back contains any values
 		if(this.props.authenticatedEvent.length === 0){
-			return (<div>No events yet</div>);
+			return (
+				<div className="row">
+					<Navigation />
+					<h1 className="center">No Events</h1>
+					<Footer />
+				</div>
+			);
 		}
 		const eventNodes = this.props.authenticatedEvent.map( ( profileEvent ) => {
 			return (
@@ -62,7 +68,6 @@ class UserProfile extends Component {
 
 		return(
 			<div>
-		
 				<Navigation />
 				{ this.state.toggle &&
 					(<div id="modal1" class="modal">

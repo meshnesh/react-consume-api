@@ -108,7 +108,7 @@ nav .brand-logo {
 }
 
 .page-footer .footer-copyright {
-    bottom: 0;
+    bottom: -40px;
     position: fixed;
     width: 100%;
 }
