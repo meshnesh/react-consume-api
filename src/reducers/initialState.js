@@ -1,7 +1,6 @@
 export default {
 	authLogin: {
 		authenticated: false,
-		loading: false,
 		isLoggedIn: false,
 		error: false,
 		message: '',

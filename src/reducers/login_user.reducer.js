@@ -7,7 +7,6 @@ export default (state = initialState.authLogin, action) => {
 	case types.LOGIN_SUCCESS:
 		return { 
 			...state,
-			loading: false,
 			token: action.payload.token,
 			authenticated: true,
 			isLoggedIn: true,
@@ -24,7 +23,6 @@ export default (state = initialState.authLogin, action) => {
 	case types.REGISTER_SUCCESS:
 		return { 
 			...state,
-			loading: true,
 			login:false,
 			message: action.payload.message,
 			authenticated: true,
@@ -33,7 +31,6 @@ export default (state = initialState.authLogin, action) => {
 	case types.LOGOUT_SUCCESS:
 		return { 
 			...state,
-			loading: true,
 			login:false,
 			message: action.payload.message,
 			authenticated: false,
