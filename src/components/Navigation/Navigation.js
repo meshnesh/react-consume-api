@@ -43,16 +43,6 @@ class Nav extends Component {
                     
 					<ul id="nav-mobile hide-on-small-only" className="right hide-on-med-and-down">
 						<li>
-							<Link to="/category">
-                                Categories
-							</Link>
-						</li>
-						<li>
-							<Link to="/about">
-                                About
-							</Link>
-						</li>
-						<li>
 							{button}
 						</li>
 						<li>
