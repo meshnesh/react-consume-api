@@ -130,6 +130,16 @@ input[type=text]:not(.browser-default) {
     width: 400px!important;
 }
 
+.btn.modal-trigger{
+    width: 9%;
+    float: right;
+    margin-top: -31px;
+}
+
+.fa-2x {
+    margin-top: 13px;
+}
+
 @media only screen and (min-width: 960px){
     .flow-text {
         font-size: 16px;
