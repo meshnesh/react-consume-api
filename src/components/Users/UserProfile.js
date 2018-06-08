@@ -32,12 +32,15 @@ class UserProfile extends Component {
 
 	onDelete(id) {
 		let eventId = this.state.selectedId;
-		this.props.deleteEventAction(eventId);
-		this.setState({
-			toogle:false,
-			selectedId: id,
-			eventDeleted:true
-		});
+		this.props.deleteEventAction(eventId)
+			.then(
+				this.setState({
+					toogle:false,
+					selectedId: id,
+					eventDeleted:true
+				})
+			);
+		
 		setTimeout(
 			function() {
 				this.props.history.push('/'); 
@@ -47,6 +50,7 @@ class UserProfile extends Component {
 
 
 	render() {
+		console.log('UserProfile one',this.props.authenticatedEvent);
 		if(this.props.authenticatedEvent.length === 0){
 			return (<div>No events yet</div>);
 		}
@@ -80,7 +84,7 @@ class UserProfile extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		authenticatedEvent: state.authEvent.events
+		authenticatedEvent: state.authEvent[0].events
 	};
 	
 };

@@ -66,7 +66,6 @@ export function userCreateEventsAction(event) {
 		return instance
 			.post('api/events', event)
 			.then(resp => {
-				// console.log('auth events',resp.data);
 				dispatch(createEventSuccess(resp.data));
 				toastr.success(resp.data.message);
 			})

@@ -5,7 +5,7 @@ import initialState from './initialState';
 export default (state = initialState.events, action) => {
 	switch (action.type) {
 	case types.GET_AUTH_EVENT_SUCCESS:
-		return [Object.assign({}, state, {events: action.payload})];
+		return [Object.assign({}, ...state, {events: action.payload})];
 
 	case types.ADD_EVENT_SUCCESS:
 		return Object.assign({}, ...state, {events: action.payload});
@@ -17,7 +17,7 @@ export default (state = initialState.events, action) => {
 		return Object.assign({}, ...state, {message: action.payload});
 
 	case types.GET_EVENT_CATEGORY:
-		return Object.assign({}, ...state, {categories: action.payload});
+		return [Object.assign({}, state, {categories: action.payload})];
 	
 	case types.SUCCESSFUL_RSVP:
 		return Object.assign({}, ...state, {rsvp: action.payload});

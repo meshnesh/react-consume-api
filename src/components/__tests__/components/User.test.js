@@ -1,8 +1,8 @@
 // User-test.js, both Login and registration
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import { UserLogin } from '../Users/UserLogin';
-import { UserRegistration } from '../Users/UserRegistration';
+import { UserLogin } from '../../Users/UserLogin';
+import { UserRegistration } from '../../Users/UserRegistration';
 
 // describe what we are testing
 describe('Login Component', () => {
