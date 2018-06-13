@@ -11,9 +11,7 @@ import MenuItem from 'material-ui/MenuItem';
 import ViewModule from 'material-ui/svg-icons/action/view-module';
 import {white} from 'material-ui/styles/colors';
 
-import AppBar from 'material-ui/AppBar';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
 import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
 
 class Nav extends Component {
@@ -21,13 +19,17 @@ class Nav extends Component {
 	constructor(props) {
 		super(props);
 		this.handleLogoutClick = this.handleLogoutClick.bind(this);
-		this.state = {isLoggedIn: this.props.userInfo.isLoggedIn};
+		this.state = {
+			isLoggedIn: this.props.userInfo.isLoggedIn
+		};
 	}
+
 
 	handleLogoutClick() {
 		this.setState({isLoggedIn: false});
 		this.props.userLogoutActions();
 	}
+
 
 	render() {
 
@@ -47,10 +49,10 @@ class Nav extends Component {
 			</Link>
 		);
 
+
 		return (
 			<nav>
 				<div className="nav-wrapper">
-
 					<Link className="brand-logo" to="/">
                         Bright Events
 					</Link>
