@@ -131,13 +131,52 @@ input[type=text]:not(.browser-default) {
 }
 
 .btn.modal-trigger{
-    width: 9%;
+    width: 50%;
     float: right;
-    margin-top: -31px;
+}
+
+.btn.profile_edit{
+    width: 50%
 }
 
 .fa-2x {
     margin-top: 13px;
+}
+
+.collection.with-header {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: rgb(33, 33, 33);
+    min-height: 90vh;
+    margin: 0rem 0 1rem 0;
+    border: 0px solid #e0e0e0;
+    border-radius: 0px;
+    padding-top: 0.2em;
+}
+
+.col.s9.Dashboard_main{
+    padding-top: 1em;
+}
+
+.collection.with-header .collection-header {
+    background-color: transparent;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.collection .collection-item {
+    line-height: 1.5rem;
+    margin: 0;
+    background-color: transparent;
+    border-bottom: 0;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.row.profile_dashboard{
+    background: whitesmoke;
+    padding-top: 1em;
+    padding-bottom: 4em;
 }
 
 @media only screen and (min-width: 960px){
