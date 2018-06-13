@@ -1,3 +1,4 @@
+import * as types from '../actions/actionTypes';
 const reducer = ( 
 	state={
 		events:[],
@@ -8,14 +9,14 @@ const reducer = (
 	switch (action.type) {
 	case 'FETCH_EVENTS':
 		return {...state, fetching: true};
-	case 'FETCH_EVENTS_FULFILLED':
+	case types.GET_EVENTS_SUCCESS:
 		return {
 			...state,
 			fetching: false,
 			fetched: true,
 			events:action.payload
 		};
-	case 'FETCH_EVENTS_REJECTED':
+	case types.GET_EVENTS_ERROR:
 		return {
 			...state,
 			fetching: false,
