@@ -12,7 +12,6 @@ import { fetchEvents } from '../actions/eventActions';
 
 class Main extends Component {
 	componentWillMount(){
-
 		this.props.dispatch(fetchEvents());
 	}
 	
@@ -22,7 +21,7 @@ class Main extends Component {
 			
 			<div>
 				<Navigation />
-				<EventList events ={this.props.events}/>
+				<EventList events ={this.props.events} dispatch={this.props.dispatch}/>
 				<Footer />
 			</div>
 		
