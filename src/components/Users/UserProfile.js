@@ -42,33 +42,36 @@ class UserProfile extends Component {
 					toogle:false,
 					selectedId: id,
 					eventDeleted:true
+				},()=>{
+					this.props.history.push('/'); 
 				})
 			);
-		
-		setTimeout(
-			function() {
-				this.props.history.push('/'); 
-			}
-				.bind(this), 1000);
+	
 	}
 
 
 	render() {
 		// check if the event data brought back contains any values
-		if(this.props.authenticatedEvent.length === 0){
-			return (
-				<div className="row">
-					<Navigation />
-					<h1 className="center">No Events</h1>
-					<Footer />
-				</div>
-			);
-		}
+		// if(this.props.authenticatedEvent.length === 0){
+		// 	return (
+		// 		<div className="row">
+		// 			<Navigation />
+		// 			<h1 className="center">No Events</h1>
+		// 			<Footer />
+		// 		</div>
+		// 	);
+		// }
 		const eventNodes = this.props.authenticatedEvent.map( ( profileEvent ) => {
 			return (
 				<DashboardPage key={ profileEvent.id } profileEvent={profileEvent} toggleModal={this.toggleModal}/>
 			);
 		});
+
+		const event = this.props.authenticatedEvent.length === 0 ? (
+			<h1 className="center">No Events</h1>
+		): (
+			{eventNodes}
+		);
 
 		return(
 			<div>
@@ -93,19 +96,20 @@ class UserProfile extends Component {
 						<div className="row">
 
 							{ this.state.toggle &&
-					(<div id="modal1" class="modal">
-						<div class="modal-content">
-							<h4>Are you sure you want to delete this Event?</h4>
-						</div>
-						<div class="modal-footer">
-							<a onClick={this.onDelete} className="btn">Accept</a>
-							<a  onClick={this.toggleModal} class="modal-action modal-close waves-effect waves-green btn-flat">Decline</a>
-						</div>
-					</div>)
+								(<div id="modal1" class="modal">
+									<div class="modal-content">
+										<h4>Are you sure you want to delete this Event?</h4>
+									</div>
+									<div class="modal-footer">
+										<a onClick={this.onDelete} className="btn">Accept</a>
+										<a  onClick={this.toggleModal} class="modal-action modal-close waves-effect waves-green btn-flat">Decline</a>
+									</div>
+								</div>)
 							}
 
-							{ eventNodes }
+							{ event }
 						</div>
+
 					</div>
 
 				</div>
