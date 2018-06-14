@@ -17,12 +17,12 @@ export function getSingleEventSuccess(payload) {
 	};
 }
 
-export const fetchEvents = () => {
+export const fetchEvents = (limit=2, page) => {
 
 	return (dispatch) => {
 		dispatch(beginAjaxCall());
 		return instance
-			.get('api/events/all')
+			.get(`api/events/all?page=${page}&limit=${limit}`)
 			.then( (resp) =>{
 				dispatch(getEventsSuccess(resp.data));
 			})
