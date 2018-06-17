@@ -96,7 +96,7 @@ class UserProfile extends Component {
 								</div>)
 							}
 
-							{ event }
+							{eventNodes}
 						</div>
 
 					</div>
