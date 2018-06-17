@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Category from '../category/GetCategories';
+
 const Search = (props) => {
 	return (
 		<div className="row search">

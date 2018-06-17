@@ -13,7 +13,6 @@ import SideNav from './containers/SideNav';
 
 import { userEventsAction, deleteEventAction } from '../../actions/authEvents.actions';
 
-
 class UserProfile extends Component {
 
 	constructor(props){
@@ -46,21 +45,10 @@ class UserProfile extends Component {
 					this.props.history.push('/'); 
 				})
 			);
-	
 	}
 
 
 	render() {
-		// check if the event data brought back contains any values
-		// if(this.props.authenticatedEvent.length === 0){
-		// 	return (
-		// 		<div className="row">
-		// 			<Navigation />
-		// 			<h1 className="center">No Events</h1>
-		// 			<Footer />
-		// 		</div>
-		// 	);
-		// }
 		const eventNodes = this.props.authenticatedEvent.map( ( profileEvent ) => {
 			return (
 				<DashboardPage key={ profileEvent.id } profileEvent={profileEvent} toggleModal={this.toggleModal}/>
@@ -75,6 +63,7 @@ class UserProfile extends Component {
 
 		return(
 			<div>
+		
 				<Navigation />
 				<div className="row">
 
