@@ -1,8 +1,33 @@
+'use strict';
+
+const path = require('path');
+const webpack = require('webpack');
+const port = process.env.PORT || 3000;
+
 module.exports = {
-	entry: './src/app.js',
+	devtool: 'eval-source-map',
+	entry: [
+		'babel-polyfill',
+		`webpack-dev-server/client?http://localhost:${port}`,
+		'webpack/hot/only-dev-server',
+		'./src/app.js',
+	],
 	output: {
-		path: './dist',
+		path: path.join(__dirname, './dist'),
 		filename: 'app.bundle.js',
+	},
+	plugins: [
+		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin(),
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify('development')
+		})
+	],
+	eslint: {
+		configFile: '.eslintrc',
+		failOnWarning: false,
+		failOnError: false
 	},
 	module: {
 		loaders: [{
