@@ -6,7 +6,7 @@
     "test": "jest",
     "test:watch": "npm run test -- --watch --coverage",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "dev": "./node_modules/.bin/webpack-dev-server --content-base --inline --hot",
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base --inline --hot process.env.PORT",
     "build": "webpack -p"
   },
   "dependencies": {
