@@ -69,6 +69,7 @@ export function userLogoutActions() {
 				let message = resp.data.message; 
 				dispatch(logOutSuccess(resp.data));
 				toastr.success(message);
+				localStorage.removeItem('access_token');
 			})
 			.catch(error => {
 				dispatch(ajaxCallError(error));

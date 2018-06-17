@@ -8,7 +8,7 @@ const ProfileEvent = (props) => (
 	<div className="collection">
 		<div className="collection-item" id={ props.profileEvent.id }>
 			<h4>{ props.profileEvent.title }</h4>
-			<span>{ props.profileEvent.date } at { props.profileEvent.time }</span> <span className="event-rsvp">0 RSVP</span>
+			<span>{ props.profileEvent.date } at { props.profileEvent.time }</span>
 			<ul className="manage_tickets">
 				<li>
 					<a>
@@ -30,7 +30,7 @@ const ProfileEvent = (props) => (
 			</ul>
 		</div>
 		<Link to="/addevent">
-			<a className="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+			<a className="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus fa-2x"></i></a>
 		</Link>
 	</div>
 );

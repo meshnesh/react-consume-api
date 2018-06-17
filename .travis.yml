@@ -12,3 +12,4 @@ script:
 after_success:
   - COVERALLS_REPO_TOKEN=$coveralls_repo_token 
   - coveralls < coverage/lcov.info
+

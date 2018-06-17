@@ -37,7 +37,9 @@ export class UserRegistration extends Component {
 		e.preventDefault();
 		const  user = this.state;
 		this.props.userRegistrationActions(user);
-		this.setState({user: ''});
+		this.setState({user: ''},()=>{
+			this.props.history.push('/login');
+		});
 	}
 
    

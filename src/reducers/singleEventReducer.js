@@ -1,3 +1,4 @@
+import * as types from '../actions/actionTypes';
 const singleEventReducer = ( 
 	state={
 		event:{},
@@ -8,14 +9,14 @@ const singleEventReducer = (
 	switch (action.type) {
 	case 'FETCH_EVENT_ID':
 		return {...state, fetching: true};
-	case 'FETCH_EVENT_ID_FULFILLED':
+	case types.GET_SINGLE_EVENT_SUCCESS:
 		return {
 			...state,
 			fetching: false,
 			fetched: true,
 			event: action.payload
 		};
-	case 'FETCH_EVENT_ID_REJECTED':
+	case types.GET_EVENT_ID_REJECTED:
 		return {
 			...state,
 			fetching: false,

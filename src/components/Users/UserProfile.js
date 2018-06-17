@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //components
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
-import ProfileEvent from './ProfileEvents';
+import DashboardPage from './NewProfile';
+
+
+import SideNav from './containers/SideNav';
 
 import { userEventsAction, deleteEventAction } from '../../actions/authEvents.actions';
-
 
 class UserProfile extends Component {
 
@@ -38,45 +41,67 @@ class UserProfile extends Component {
 					toogle:false,
 					selectedId: id,
 					eventDeleted:true
+				},()=>{
+					this.props.history.push('/'); 
 				})
 			);
-		
-		setTimeout(
-			function() {
-				this.props.history.push('/'); 
-			}
-				.bind(this), 1000);
 	}
 
 
 	render() {
-		console.log('UserProfile one',this.props.authenticatedEvent);
-		if(this.props.authenticatedEvent.length === 0){
-			return (<div>No events yet</div>);
-		}
 		const eventNodes = this.props.authenticatedEvent.map( ( profileEvent ) => {
 			return (
-				<ProfileEvent key={ profileEvent.id } profileEvent={profileEvent} toggleModal={this.toggleModal}/>
+				<DashboardPage key={ profileEvent.id } profileEvent={profileEvent} toggleModal={this.toggleModal}/>
 			);
 		});
+
+		const event = this.props.authenticatedEvent.length === 0 ? (
+			<h1 className="center">No Events</h1>
+		): (
+			{eventNodes}
+		);
 
 		return(
 			<div>
 		
 				<Navigation />
-				{ this.state.toggle &&
-					(<div id="modal1" class="modal">
-						<div class="modal-content">
-							<h4>Are you sure you want to delete this Event?</h4>
+				<div className="row">
+
+					<SideNav />
+
+					<div className="col s9 Dashboard_main">
+					
+						<div className="row">
+							<div className="col s12 l6">
+								<h6>Profile > Dashboard</h6>
+							</div>
+							<div className="col s12 l6">
+								<Link to="/AddEvent">
+									<a class="btn right"><i class="material-icons left">add</i>Add Event</a>
+								</Link>
+							</div>
 						</div>
-						<div class="modal-footer">
-							<a onClick={this.onDelete} className="btn">Accept</a>
-							<a  onClick={this.toggleModal} class="modal-action modal-close waves-effect waves-green btn-flat">Decline</a>
+					
+						<div className="row">
+
+							{ this.state.toggle &&
+								(<div id="modal1" class="modal">
+									<div class="modal-content">
+										<h4>Are you sure you want to delete this Event?</h4>
+									</div>
+									<div class="modal-footer">
+										<a onClick={this.onDelete} className="btn">Accept</a>
+										<a  onClick={this.toggleModal} class="modal-action modal-close waves-effect waves-green btn-flat">Decline</a>
+									</div>
+								</div>)
+							}
+
+							{eventNodes}
 						</div>
-					</div>)
-				}
-				{ eventNodes }
-				<Footer />
+
+					</div>
+
+				</div>
 			</div>
 		);
 	}

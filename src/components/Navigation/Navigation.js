@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-
+import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
 
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -12,7 +11,7 @@ import ViewModule from 'material-ui/svg-icons/action/view-module';
 import {white} from 'material-ui/styles/colors';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
+
 
 class Nav extends Component {
 

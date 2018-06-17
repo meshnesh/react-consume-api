@@ -7,12 +7,9 @@ const Search = (props) => {
 		<div className="row search">
 			<form className="col s12">
 				<div className="row">
-					<div className="input-field col s6">
-						<input placeholder="Location" id="Location" type="text" className="validate" onChange={props.onChange}/>
-						<label for="Location">Location</label>
-					</div>
-					<div className="input-field col s12 m6">
-						<Category />
+					<div className="input-field col s12">
+						<input placeholder="Location / Title" id="Location" type="text" className="validate" onChange={props.onChange}/>
+						<label for="Location/Title">Location</label>
 					</div>
 				</div>
 			</form>

@@ -6,8 +6,8 @@ import UserRegistration from './components/Users/User';
 import UserLogin from './components/Users/UserLogin';
 import EventDetail from './components/Events/EventDetail';
 import UserProfile from './components/Users/UserProfile';
-import AddEvent from './components/AuthEvents/AddEvent';
-import EditEvent from './components/AuthEvents/EditEvent';
+import AddEvent from './components/Users/containers/CreateEvent';
+import EditEvent from './components/Users/containers/EditEvent';
 import EventCategory from './components/category/GetCategories';
 
 
@@ -22,7 +22,7 @@ export default () => {
 				<Route component={EventCategory} exact path='/category' />
 				<Route component={EditEvent} exact path='/edit/:id' />
 				<Route exact path='/register' component={UserRegistration}/>
-				<Route exact path='/profile' component={UserProfile}/>
+				<Route exact path='/newProfile' component={UserProfile}/>
 				<Route exact path='/login' component={UserLogin}/>
 				<Route exact path='/:id' component={EventDetail}/>
 			

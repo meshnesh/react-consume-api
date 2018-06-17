@@ -32,7 +32,6 @@ class Category extends Component {
 
 		return (
 			<SelectField name='event_category' className="Filter"
-				// floatingLabelText="Select event Category"
 				value={this.state.value}
 				onChange={this.props.handleCategoryChange }
 			>
@@ -47,7 +46,8 @@ class Category extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		categories: state.authEvent[0].categories
+		categories: state.authEvent[0].categories,
+		editEvent:state.event
 	};
 };
 
