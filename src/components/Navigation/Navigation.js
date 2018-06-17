@@ -12,15 +12,6 @@ import {white} from 'material-ui/styles/colors';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import ViewModule from 'material-ui/svg-icons/action/view-module';
-import {white} from 'material-ui/styles/colors';
-
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
 
 class Nav extends Component {
 
