@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
 
 
 
@@ -30,7 +31,6 @@ class Nav extends Component {
 		this.props.userLogoutActions();
 	}
 
-
 	render() {
 
 		const isLoggedIn = this.state.isLoggedIn;
@@ -48,7 +48,6 @@ class Nav extends Component {
 				<MenuItem key={1} primaryText="Login"/>
 			</Link>
 		);
-
 
 		return (
 			<nav>
@@ -86,5 +85,6 @@ const mapDispatchToProps = (dispatch) => {
 		userLogoutActions: () =>dispatch(userLogoutActions())
 	};
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);
