@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';\
 import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
 
 import IconButton from 'material-ui/IconButton';
@@ -11,6 +11,16 @@ import ViewModule from 'material-ui/svg-icons/action/view-module';
 import {white} from 'material-ui/styles/colors';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
+import ViewModule from 'material-ui/svg-icons/action/view-module';
+import {white} from 'material-ui/styles/colors';
+
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
 
 class Nav extends Component {
 
@@ -27,6 +37,7 @@ class Nav extends Component {
 		this.setState({isLoggedIn: false});
 		this.props.userLogoutActions();
 	}
+
 
 	render() {
 
@@ -45,6 +56,7 @@ class Nav extends Component {
 				<MenuItem key={1} primaryText="Login"/>
 			</Link>
 		);
+
 
 		return (
 			<nav>
