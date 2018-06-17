@@ -13,7 +13,6 @@ import ViewModule from 'material-ui/svg-icons/action/view-module';
 import {white} from 'material-ui/styles/colors';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import { userLogoutActions, userLoginActions } from '../../actions/user.actions';
 
 class Nav extends Component {
 
