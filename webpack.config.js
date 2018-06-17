@@ -10,7 +10,7 @@ module.exports = {
 		'babel-polyfill',
 		`webpack-dev-server/client?http://localhost:${port}`,
 		'webpack/hot/only-dev-server',
-		'./src/app.js',
+		'./src/App.js',
 	],
 	output: {
 		path: path.join(__dirname, './dist'),
