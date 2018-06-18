@@ -20,3 +20,4 @@ P.S: Feedback is welcome
 
 * View on the browser on [localhost](http://localhost:8080)
 
+Live application on [Heroku](https://react-consume-api.herokuapp.com/)
